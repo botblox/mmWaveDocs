@@ -1,5 +1,6 @@
 import {useEffect, type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -41,6 +42,23 @@ const applications = [
 
 export default function Home(): ReactNode {
   /*
+   * useBaseUrl adds the configured Docusaurus baseUrl to these paths.
+   *
+   * Locally:
+   * /img/mmwave/home/mmwave-core-render.png
+   *
+   * On GitHub Pages:
+   * /botblox-mmwave-docs/img/mmwave/home/mmwave-core-render.png
+   */
+  const productRenderUrl = useBaseUrl(
+    '/img/mmwave/home/mmwave-core-render.png',
+  );
+
+  const productStackUrl = useBaseUrl(
+    '/img/mmwave/home/mmwave-core-stack.png',
+  );
+
+  /*
    * This class lets custom.css style the navbar differently on the
    * landing page. It is removed when the user navigates to the docs.
    */
@@ -66,9 +84,13 @@ export default function Home(): ReactNode {
 
           <div className={`container ${styles.heroContainer}`}>
             <div className={styles.heroContent}>
-              <p className={styles.eyebrow}>BOTBLOX SYSTEMS</p>
+              <p className={styles.eyebrow}>
+                BOTBLOX SYSTEMS
+              </p>
 
-              <Heading as="h1" className={styles.heroTitle}>
+              <Heading
+                as="h1"
+                className={styles.heroTitle}>
                 mmWave Core
               </Heading>
 
@@ -103,7 +125,7 @@ export default function Home(): ReactNode {
               />
 
               <img
-                src="/img/mmwave/home/mmwave-core-render.png"
+                src={productRenderUrl}
                 alt="BotBlox mmWave Core radar module"
                 fetchPriority="high"
               />
@@ -159,7 +181,9 @@ export default function Home(): ReactNode {
                 MODULAR HARDWARE
               </p>
 
-              <Heading as="h2" className={styles.sectionTitle}>
+              <Heading
+                as="h2"
+                className={styles.sectionTitle}>
                 Tiny, modular, and stackable
               </Heading>
 
@@ -194,7 +218,7 @@ export default function Home(): ReactNode {
               />
 
               <img
-                src="/img/mmwave/home/mmwave-core-stack.png"
+                src={productStackUrl}
                 alt="Modular construction of the BotBlox mmWave Core"
                 loading="lazy"
               />
@@ -220,7 +244,9 @@ export default function Home(): ReactNode {
                 CONFIGURABLE PERFORMANCE
               </p>
 
-              <Heading as="h2" className={styles.sectionTitle}>
+              <Heading
+                as="h2"
+                className={styles.sectionTitle}>
                 Tune the radar for the mission
               </Heading>
 
@@ -272,7 +298,9 @@ export default function Home(): ReactNode {
               BUILT FOR AUTONOMOUS SYSTEMS
             </p>
 
-            <Heading as="h2" className={styles.applicationTitle}>
+            <Heading
+              as="h2"
+              className={styles.applicationTitle}>
               Reliable sensing when optical sensors are challenged
             </Heading>
 
@@ -298,7 +326,9 @@ export default function Home(): ReactNode {
               START BUILDING
             </p>
 
-            <Heading as="h2" className={styles.ctaTitle}>
+            <Heading
+              as="h2"
+              className={styles.ctaTitle}>
               Integrate mmWave Core
             </Heading>
 

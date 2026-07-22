@@ -1,0 +1,682 @@
+.page {
+  overflow: hidden;
+  background: #090909;
+  color: #ffffff;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--ifm-navbar-height));
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 4, 4, 0.98) 0%,
+      rgba(4, 4, 4, 0.91) 35%,
+      rgba(4, 4, 4, 0.55) 67%,
+      rgba(4, 4, 4, 0.78) 100%
+    ),
+    url('/img/mmwave/home/hero-background.png')
+      center center / cover no-repeat;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 72% 49%,
+      rgba(218, 27, 37, 0.25),
+      transparent 29%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 65%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  pointer-events: none;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  align-items: center;
+  gap: 3rem;
+  padding-top: 5rem;
+  padding-bottom: 7rem;
+}
+
+.heroContent {
+  max-width: 720px;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  margin: 0 0 1rem;
+  color: #ed1c24;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.heroTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(4.5rem, 9vw, 8.5rem);
+  font-weight: 750;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+}
+
+.heroLead {
+  max-width: 680px;
+  margin: 2rem 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  line-height: 1.65;
+}
+
+.heroButtons,
+.ctaButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.secondaryButton {
+  border-color: rgba(255, 255, 255, 0.55) !important;
+  color: #ffffff !important;
+}
+
+.heroNote {
+  margin-top: 2rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.heroProduct {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 520px;
+}
+
+.heroProduct img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  filter:
+    drop-shadow(0 35px 40px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 36px rgba(218, 27, 37, 0.18));
+  transform: rotate(-3deg);
+}
+
+.productGlow,
+.redGlow {
+  position: absolute;
+  width: 65%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(218, 27, 37, 0.27);
+  filter: blur(90px);
+}
+
+.scrollCue {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.75rem;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.scrollCue:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.scrollArrow {
+  color: #ed1c24;
+  font-size: 1.3rem;
+  animation: scrollBounce 1.7s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(7px);
+  }
+}
+
+.capabilitiesSection {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  background: #0c0c0d;
+}
+
+.capabilitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.capabilityCard {
+  min-height: 235px;
+  padding: 2.5rem 1.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.capabilityCard:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.capabilityValue {
+  margin-bottom: 1rem;
+  color: #ed1c24;
+  font-size: clamp(1.8rem, 3vw, 2.75rem);
+  font-weight: 850;
+  letter-spacing: -0.045em;
+}
+
+.capabilityLabel {
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.capabilityDetail {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+.modularSection {
+  padding: 9rem 1.5rem;
+  background:
+    radial-gradient(
+      circle at 78% 52%,
+      rgba(218, 27, 37, 0.13),
+      transparent 31%
+    ),
+    linear-gradient(145deg, #101012, #050505);
+}
+
+.splitLayout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(4rem, 8vw, 9rem);
+}
+
+.sectionCopy {
+  max-width: 650px;
+}
+
+.sectionTitle {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.sectionLead {
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 1.12rem;
+  line-height: 1.75;
+}
+
+.modularImage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.modularImage img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 650px);
+  filter: drop-shadow(0 35px 45px rgba(0, 0, 0, 0.55));
+}
+
+.inlineStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.inlineStats div {
+  padding-top: 1rem;
+  border-top: 2px solid #ed1c24;
+}
+
+.inlineStats strong,
+.inlineStats span {
+  display: block;
+}
+
+.inlineStats strong {
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.inlineStats span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+}
+
+/* Configurable performance section */
+.performanceSection {
+  position: relative;
+  isolation: isolate;
+  min-height: 880px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 9rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #050505;
+}
+
+/*
+ * Large decorative FOV diagram behind the content.
+ * The black background in the PNG blends into the section while the
+ * colored FOV geometry remains visible.
+ */
+.performanceDiagram {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  background-image: url('/img/mmwave/home/fov-diagram.png');
+  background-repeat: no-repeat;
+  background-position: left -4vw center;
+  background-size: min(70vw, 1180px) auto;
+  opacity: 0.72;
+  filter:
+    brightness(0.88)
+    contrast(1.12)
+    saturate(1.05);
+  transform: scale(1.04);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+/*
+ * Fades the diagram into the dark content area. The left side remains
+ * visible while the right side becomes nearly black for legible text.
+ */
+.performanceOverlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 24% 50%,
+      rgba(143, 0, 10, 0.2),
+      transparent 42%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(5, 5, 5, 0.05) 0%,
+      rgba(5, 5, 5, 0.12) 30%,
+      rgba(5, 5, 5, 0.7) 50%,
+      rgba(5, 5, 5, 0.96) 66%,
+      #050505 80%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.4) 0%,
+      transparent 22%,
+      transparent 76%,
+      rgba(5, 5, 5, 0.82) 100%
+    );
+  pointer-events: none;
+}
+
+.performanceContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 1fr)
+    minmax(480px, 650px);
+  gap: 6rem;
+}
+
+.performanceCopy {
+  grid-column: 2;
+  width: 100%;
+}
+
+.performanceStats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin: 2.5rem 0 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(4px);
+}
+
+.performanceStats div {
+  padding: 1.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.performanceStats strong,
+.performanceStats span {
+  display: block;
+}
+
+.performanceStats strong {
+  margin-bottom: 0.45rem;
+  color: #ffffff;
+  font-size: 1.25rem;
+}
+
+.performanceStats span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.8rem;
+}
+
+.applicationsSection {
+  position: relative;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  background:
+    url('/img/mmwave/home/autonomous-systems.png')
+      center center / cover no-repeat;
+}
+
+.applicationsOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(23, 0, 2, 0.97) 0%,
+      rgba(23, 0, 2, 0.9) 35%,
+      rgba(8, 8, 8, 0.44) 68%,
+      rgba(8, 8, 8, 0.15) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.36),
+      rgba(0, 0, 0, 0.45)
+    );
+}
+
+.applicationsContent {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.applicationTitle {
+  max-width: 760px;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.applicationLead {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.15rem;
+  line-height: 1.75;
+}
+
+.applicationTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+.applicationTags span {
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.finalCta {
+  padding: 10rem 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(218, 27, 37, 0.2),
+      transparent 40%
+    ),
+    #080808;
+}
+
+.ctaTitle {
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  letter-spacing: -0.065em;
+}
+
+.ctaLead {
+  max-width: 660px;
+  margin: 0 auto 2.5rem;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  justify-content: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    padding-top: 6rem;
+    text-align: center;
+  }
+
+  .heroContent {
+    margin: 0 auto;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .heroProduct {
+    min-height: 350px;
+  }
+
+  .heroProduct img {
+    max-width: 580px;
+  }
+
+  .capabilitiesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .capabilityCard:first-child {
+    border-left: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .performanceSection {
+    min-height: auto;
+    align-items: flex-start;
+    padding-top: 42rem;
+    padding-bottom: 7rem;
+  }
+
+  .performanceDiagram {
+    height: 40rem;
+    bottom: auto;
+    background-position: center center;
+    background-size: min(96vw, 900px) auto;
+    opacity: 0.72;
+    transform: none;
+  }
+
+  .performanceOverlay {
+    background:
+      radial-gradient(
+        circle at 50% 25%,
+        rgba(143, 0, 10, 0.16),
+        transparent 42%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(5, 5, 5, 0.03) 0%,
+        rgba(5, 5, 5, 0.14) 32%,
+        rgba(5, 5, 5, 0.88) 58%,
+        #050505 72%
+      );
+  }
+
+  .performanceContent {
+    display: block;
+  }
+
+  .performanceCopy {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hero {
+    background-position: 65% center;
+  }
+
+  .heroContainer {
+    gap: 1.5rem;
+  }
+
+  .heroTitle {
+    font-size: clamp(4rem, 18vw, 6rem);
+  }
+
+  .heroProduct {
+    min-height: auto;
+  }
+
+  .splitLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .inlineStats {
+    grid-template-columns: 1fr;
+  }
+
+  .modularSection {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .applicationsSection {
+    min-height: 680px;
+    background-position: 65% center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .performanceSection {
+    padding-top: 27rem;
+    padding-right: 1.25rem;
+    padding-bottom: 5rem;
+    padding-left: 1.25rem;
+  }
+
+  .performanceDiagram {
+    height: 27rem;
+    background-position: center top 1.5rem;
+    background-size: 150% auto;
+    opacity: 0.62;
+  }
+
+  .performanceOverlay {
+    background:
+      radial-gradient(
+        circle at 50% 20%,
+        rgba(143, 0, 10, 0.13),
+        transparent 44%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(5, 5, 5, 0.03) 0%,
+        rgba(5, 5, 5, 0.2) 35%,
+        rgba(5, 5, 5, 0.94) 65%,
+        #050505 78%
+      );
+  }
+}
+
+@media screen and (max-width: 560px) {
+  .capabilitiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilityCard {
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
+
+  .performanceStats {
+    grid-template-columns: 1fr;
+  }
+
+  .heroButtons,
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .heroButtons :global(.button),
+  .ctaButtons :global(.button) {
+    width: 100%;
+  }
+
+  .applicationTitle {
+    font-size: 3.25rem;
+  }
+}

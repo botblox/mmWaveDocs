@@ -88,10 +88,9 @@ export default function Home(): ReactNode {
                 BOTBLOX SYSTEMS
               </p>
 
-              <Heading
-                as="h1"
-                className={styles.heroTitle}>
-                mmWave Core
+              <Heading as="h1" className={styles.heroTitle}>
+                <span className={styles.heroTitleLine}>mmWave</span>
+                <span className={styles.heroTitleLine}>Core</span>
               </Heading>
 
               <p className={styles.heroLead}>
@@ -278,7 +277,7 @@ export default function Home(): ReactNode {
               </div>
 
               <Link
-                className="button button--primary button--lg"
+                className={`button button--primary button--lg ${styles.performanceButton}`}
                 to="/docs/Radar%20Fundamentals/Range">
                 Learn how radar configuration works
               </Link>

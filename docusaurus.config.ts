@@ -80,10 +80,10 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'mmWaveSidebar',
-          position: 'left',
+          to: '/docs',
           label: 'mmWave Core',
+          position: 'left',
+          className: 'navbar-mmwave-link',
         },
         {
           href: 'https://botblox.com',

@@ -32,6 +32,7 @@
   --ifm-border-color: #dddddf;
 
   --ifm-navbar-shadow: none;
+  --ifm-navbar-sidebar-width: min(72vw, 300px);
 
   --docusaurus-highlighted-code-line-bg:
     rgba(217, 45, 32, 0.1);
@@ -71,16 +72,13 @@
 ========================================= */
 
 .navbar {
-  background: rgba(250, 250, 250, 0.96);
+  background: rgba(250, 250, 250, 0.98);
   border-bottom: 1px solid rgba(17, 17, 17, 0.09);
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.035);
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 [data-theme='dark'] .navbar {
-  background: rgba(20, 20, 22, 0.96);
+  background: rgba(20, 20, 22, 0.98);
   border-bottom-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 2px 18px rgba(0, 0, 0, 0.22);
 }
@@ -136,7 +134,7 @@
   color: #ffffff;
 }
 
-/* Active and hover underline */
+/* Desktop active and hover underline */
 
 .navbar__link::before {
   position: absolute;
@@ -202,9 +200,9 @@ body.mmwave-homepage .navbar {
   background:
     linear-gradient(
       90deg,
-      rgba(30, 10, 12, 0.97) 0%,
-      rgba(19, 13, 14, 0.96) 42%,
-      rgba(12, 12, 13, 0.97) 100%
+      rgba(30, 10, 12, 0.98) 0%,
+      rgba(19, 13, 14, 0.98) 42%,
+      rgba(12, 12, 13, 0.98) 100%
     );
 
   border-bottom: 1px solid rgba(237, 28, 36, 0.23);
@@ -296,20 +294,21 @@ body.mmwave-homepage .dropdown__link--active {
 }
 
 /* =========================================
-   Mobile navbar drawer
+   Mobile navbar drawer base colors
 ========================================= */
 
-.navbar-sidebar {
+.navbar-sidebar,
+.navbar-sidebar__brand,
+.navbar-sidebar__items {
   background: #fafafa;
 }
 
 .navbar-sidebar__brand {
   border-bottom: 1px solid rgba(0, 0, 0, 0.09);
-  background: #fafafa;
 }
 
-.navbar-sidebar__items {
-  background: #fafafa;
+.navbar-sidebar__backdrop {
+  background: rgba(0, 0, 0, 0.72);
 }
 
 [data-theme='dark'] .navbar-sidebar,
@@ -321,34 +320,9 @@ body.mmwave-homepage .navbar-sidebar__items {
   background: #101012;
 }
 
-.navbar-sidebar__backdrop {
-  background: rgba(0, 0, 0, 0.65);
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.navbar-sidebar .menu__link {
-  color: rgba(24, 24, 24, 0.75);
-}
-
-.navbar-sidebar .menu__link:hover,
-.navbar-sidebar .menu__link--active {
-  color: #181818;
-  background: rgba(217, 45, 32, 0.1);
-}
-
-[data-theme='dark'] .navbar-sidebar .menu__link,
-body.mmwave-homepage .navbar-sidebar .menu__link {
-  color: rgba(255, 255, 255, 0.76);
-}
-
-[data-theme='dark'] .navbar-sidebar .menu__link:hover,
-[data-theme='dark'] .navbar-sidebar .menu__link--active,
-body.mmwave-homepage .navbar-sidebar .menu__link:hover,
-body.mmwave-homepage .navbar-sidebar .menu__link--active {
-  color: #ffffff;
-  background: rgba(237, 28, 36, 0.13);
+[data-theme='dark'] .navbar-sidebar__brand,
+body.mmwave-homepage .navbar-sidebar__brand {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
 }
 
 /* =========================================
@@ -543,19 +517,149 @@ blockquote {
 }
 
 /* =========================================
-   Small screens
+   Mobile navbar
 ========================================= */
 
 @media screen and (max-width: 996px) {
+  /*
+   * Docusaurus controls:
+   * - drawer position
+   * - open/closed transforms
+   * - dimensions
+   * - overflow
+   * - stacking
+   *
+   * This section only changes appearance.
+   */
+
   .navbar__logo {
-    height: 32px;
+    height: 31px;
   }
 
   .navbar__title {
+    overflow: hidden;
     font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  body.mmwave-homepage .navbar {
-    background: rgba(17, 12, 13, 0.97);
+  /* Hamburger button */
+
+  .navbar__toggle {
+    color: #181818;
+    border-radius: 6px;
   }
+
+  .navbar__toggle:hover {
+    color: var(--ifm-color-primary);
+    background: rgba(217, 45, 32, 0.08);
+  }
+
+  [data-theme='dark'] .navbar__toggle,
+  body.mmwave-homepage .navbar__toggle {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  [data-theme='dark'] .navbar__toggle:hover,
+  body.mmwave-homepage .navbar__toggle:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.09);
+  }
+
+  /* Mobile drawer header */
+
+  .navbar-sidebar__brand {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  }
+
+  [data-theme='dark'] .navbar-sidebar__brand,
+  body.mmwave-homepage .navbar-sidebar__brand {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Documentation and category links in the drawer */
+
+  .navbar-sidebar .menu__link {
+    min-height: 46px;
+    padding: 0.7rem 0.85rem;
+
+    color: rgba(24, 24, 24, 0.78);
+    font-weight: 650;
+
+    border-radius: 6px;
+  }
+
+  .navbar-sidebar .menu__link:hover,
+  .navbar-sidebar .menu__link--active {
+    color: var(--ifm-color-primary);
+    background: rgba(217, 45, 32, 0.1);
+  }
+
+  [data-theme='dark'] .navbar-sidebar .menu__link,
+  body.mmwave-homepage .navbar-sidebar .menu__link {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  [data-theme='dark'] .navbar-sidebar .menu__link:hover,
+  [data-theme='dark'] .navbar-sidebar .menu__link--active,
+  body.mmwave-homepage .navbar-sidebar .menu__link:hover,
+  body.mmwave-homepage .navbar-sidebar .menu__link--active {
+    color: #ffffff;
+    background: rgba(237, 28, 36, 0.14);
+  }
+
+  /* Regular navbar links moved into the drawer */
+
+  .navbar-sidebar .navbar__link {
+    color: rgba(24, 24, 24, 0.78);
+    font-weight: 650;
+  }
+
+  .navbar-sidebar .navbar__link:hover,
+  .navbar-sidebar .navbar__link--active {
+    color: var(--ifm-color-primary);
+  }
+
+  [data-theme='dark'] .navbar-sidebar .navbar__link,
+  body.mmwave-homepage .navbar-sidebar .navbar__link {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  [data-theme='dark'] .navbar-sidebar .navbar__link:hover,
+  [data-theme='dark'] .navbar-sidebar .navbar__link--active,
+  body.mmwave-homepage .navbar-sidebar .navbar__link:hover,
+  body.mmwave-homepage .navbar-sidebar .navbar__link--active {
+    color: #ffffff;
+  }
+
+  /* Remove desktop underline inside the drawer */
+
+  .navbar-sidebar .navbar__link::before {
+    display: none;
+  }
+}
+
+/* Very narrow phones */
+
+@media screen and (max-width: 430px) {
+  .navbar__title {
+    display: none;
+  }
+
+  .navbar__logo {
+    margin-right: 0;
+  }
+}
+
+/* Theme-specific Markdown images */
+[data-theme='light'] img[src$='#gh-dark-mode-only'],
+[data-theme='dark'] img[src$='#gh-light-mode-only'] {
+  display: none;
+}
+
+img[src$='#gh-light-mode-only'],
+img[src$='#gh-dark-mode-only'] {
+  width: min(100%, 900px);
+  height: auto;
+  margin: 2rem auto;
 }

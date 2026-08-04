@@ -69,6 +69,16 @@ The basic range measurement works like this:
 5. The radar compares the received echo with the signal it is currently transmitting.
 6. The difference between those two frequencies is called the **beat frequency**.
 
+For example:
+
+> 
+> Current transmitted frequency: **77.010 GHz**
+>
+> Returning delayed frequency: **77.008 GHz**
+>
+> Difference: **2 MHz**
+>
+
 This beat frequency is directly related to distance. A nearby object produces a small delay, so the returned signal is only slightly behind the outgoing chirp. That creates a smaller frequency difference. A farther object produces a larger delay, so the returned signal is farther behind the outgoing chirp. That creates a larger frequency difference.
 
 In other words, FMCW radar turns a very tiny time delay into a frequency difference that is much easier to measure electronically.

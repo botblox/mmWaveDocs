@@ -1,3 +1,5 @@
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # APIs
 
 ## Output packets
@@ -21,7 +23,7 @@ total length is always a multiple of 32 bytes.
 
 <figure>
   <img
-    src="/img/mmwave/apis/output_packet_uart.png"
+    src={useBaseUrl('/img/mmwave/apis/output_packet_uart.png')}
     alt="Output structure of a TLV packet sent over UART"
   />
   <figcaption>

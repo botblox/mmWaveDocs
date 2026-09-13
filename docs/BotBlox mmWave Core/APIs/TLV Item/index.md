@@ -13,7 +13,7 @@ its payload. The TLV header contains two 32-bit unsigned integers:
 | 0–3 | `uint32_t` | `type` | Identifies the data contained in the payload. |
 | 4–7 | `uint32_t` | `length` | Length associated with the TLV item. |
 
-The `numTLVs` field in the [output packet header](<./TLV Header.md>) specifies
+The `numTLVs` field in the [output packet header](<../Packet Header.md>) specifies
 how many TLV items are contained in the packet.
 
 ## TLV types
@@ -26,7 +26,7 @@ zero, the available values are:
 | `0` | `MMW_OUTPUT_MSG_DETECTED_POINTS` | List of detected points. |
 | `1` | `MMW_OUTPUT_MSG_RANGE_PROFILE` | Range profile. |
 | `2` | `MMW_OUTPUT_MSG_NOISE_PROFILE` | Noise floor profile. |
-| `3` | `MMW_OUTPUT_MSG_AZIMUT_STATIC_HEAT_MAP` | Samples used to calculate the static azimuth heatmap. |
+| `3` | `MMW_OUTPUT_MSG_AZIMUTH_STATIC_HEAT_MAP` | Samples used to calculate the static azimuth heatmap. |
 | `4` | `MMW_OUTPUT_MSG_RANGE_DOPPLER_HEAT_MAP` | Range/Doppler heatmap. |
 | `5` | `MMW_OUTPUT_MSG_STATS` | Statistics info. |
 | `6` | `MMW_OUTPUT_MSG_DETECTED_POINTS_SIDE_INFO` | Side infor for the detected points. |

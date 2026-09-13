@@ -63,7 +63,7 @@ antenna channels, represented in unsigned Q8 format.
 
    $C$ is the number of chirps for each virtual antenna channel,
    
-   $N_D$ is the DopplerFFT length (either equal to the number of chirps in a CPI or next nearest power of two of that number. For TDM, this number should be divided by the number of TX antennas because each TX-RX virtual antenna channel only samples when its corresponding TX antenna is transmitting. For DDM, this DopplerFFT length is not divided by anything as every TX-RX virtual antenna channel is sampling at the same time),
+   $N_D$ is the DopplerFFT length (either equal to the number of chirps in a CPI or next nearest power of two of that number greater). For TDM, this number should be divided by the number of TX antennas because each TX-RX virtual antenna channel only samples when its corresponding TX antenna is transmitting. For DDM, this DopplerFFT length is not divided by anything as every TX-RX virtual antenna channel is sampling at the same time,
    
    $w_{Doppler}[c]$ is the Doppler window, and
    
@@ -95,7 +95,7 @@ antenna channels, represented in unsigned Q8 format.
 
 4. A second FFT is performed across the virtual antenna channel dimension. Only
    zero-frequency bin is retained because that bin is the sum of all its
-   inputs (general property of FFTs). FFT scaling normalises this sum by the FFT length $N'$.
+   inputs (convince yourself that is a mathematical property of FFTs). FFT scaling normalises this sum by the FFT length $N'$.
 
    For virtual antenna FFT bin $k$, the scaled FFT output is:
 
@@ -108,7 +108,7 @@ antenna channels, represented in unsigned Q8 format.
    e^{-j2\pi kv/N'}
    $$
 
-   $N'$ is the virtual antenna channel FFT length (either equal to the number of virtual antenna channels or next power of two from that number. FFT inputs are zero-padded for indices beyond number of virtual antenna channels in the latter case so they don't contribute to sum),
+   $N'$ is the virtual antenna channel FFT length (either equal to the number of virtual antenna channels or next power of two from that number greater. FFT inputs are zero-padded for indices beyond number of virtual antenna channels in the latter case so they don't contribute to sum),
 
    At zero-frequency bin, $k=0$, complex exponential equals one:
 
@@ -182,7 +182,7 @@ The lower 8 bits are the fractional part, so one count represents
 `1 / 2^8 = 1 / 256`. Decode a received value by dividing it by 256:
 
 ```text
-decoded value = raw uint16_t value / 256
+decoded value = raw value (uint16_t) / 256
 ```
 
 For example, a raw value of `13107` (`0x3333`) represents:
@@ -193,3 +193,8 @@ For example, a raw value of `13107` (`0x3333`) represents:
 
 This unsigned 16-bit representation can express values from `0` to
 `65535 / 256`, or approximately `255.996`.
+
+## Selecting the output
+
+The CLI config command `guiMonitor` selects the TLV elements that are sent in
+the output packet. This includes the range profile.

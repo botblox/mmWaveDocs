@@ -9,7 +9,7 @@ output packet contains:
 
 - A packet header
   ([`Mmw_output_message_header_t`](<./Packet Header.md>)).
-- One or more [type-length-value (TLV) items](<./TLV Item>) containing the
+- One or more [type-length-value (TLV) items](<./TLV Item/index.md>) containing the
   output data.
 
 Each TLV item contains a type, a length (`Mmw_output_message_tl_t`), and

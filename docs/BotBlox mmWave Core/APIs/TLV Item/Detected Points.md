@@ -31,6 +31,11 @@ Value: Dense array of detected objects. Each value listed has no padding.
     alt="Coordinate geometry"
   />
   <figcaption>
-    x, y, z axis as referenced in `struct PointCloudCartesian`. Example 4RX+4TX antenna shown with horizontal placement parallel to x-axis, vertical placement parallel to z-axis. y-axis referencing direction away/toward boresight.
+    x, y, z axis as referenced in `struct PointCloudCartesian`. Example 4RX+3TX antenna shown with horizontal placement parallel to x-axis, vertical placement parallel to z-axis. y-axis referencing direction away/toward boresight.
   </figcaption>
 </figure>
+
+## Selecting the output
+
+The CLI config command `guiMonitor` selects the TLV elements that are sent in
+the output packet. This includes detected points.

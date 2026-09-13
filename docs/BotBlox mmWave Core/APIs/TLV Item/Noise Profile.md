@@ -23,7 +23,7 @@ positive Doppler bin rather than the zero-Doppler bin.
 ## How the values are produced
 
 The range and noise profiles are derived from the same range–Doppler detection
-matrix. See [How the values are produced](<./Range Profile.md#how-the-values-are-produced>)
+matrix. See [How values are produced](<./Range Profile.md#how-values-are-produced>)
 for the complete processing sequence and Q8 conversion.
 
 Previously for Range profile, range profile selects Doppler bin zero:
@@ -62,3 +62,8 @@ near the zero-Doppler bin. The values in the maximum-Doppler bin therefore
 provide an estimate of the receiver noise floor at each range bin. A fast-moving
 object or interference occupying this maximal Doppler bin can raise the reported noise
 profile above the underlying receiver noise floor. Therefore, knowing the noise floor in advance is a useful metric.
+
+## Selecting the output
+
+The CLI config command `guiMonitor` selects the TLV elements that are sent in
+the output packet. This includes the noise floor profile.

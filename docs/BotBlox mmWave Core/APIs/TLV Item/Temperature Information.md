@@ -52,3 +52,8 @@ temperature sensor readings. All temperature readings are signed, with
 | `int16_t` | `tmpPmSens` | PM temperature sensor reading, in °C. |
 | `int16_t` | `tmpDig0Sens` | TX3 temperature sensor reading, in °C. |
 | `int16_t` | `tmpDig1Sens` | Reserved. Don't interpret as a temperature reading. |
+
+## Selecting the output
+
+The CLI config command `guiMonitor` selects the TLV elements that are sent in
+the output packet. This includes temperature information.

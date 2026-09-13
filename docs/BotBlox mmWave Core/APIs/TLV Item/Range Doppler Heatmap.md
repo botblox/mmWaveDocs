@@ -17,7 +17,7 @@ same format used by the [range profile](<./Range Profile.md>) and
 
 ## How the values are produced
 
-See [How the values are produced](<./Range Profile.md#how-the-values-are-produced>)
+See [How values are produced](<./Range Profile.md#how-values-are-produced>)
 for the range FFT, Doppler FFT, virtual-antenna summation, and Q8 conversion.
 
 Unlike previous profile TLVs, the heatmap does not select only one Doppler bin. It
@@ -78,3 +78,8 @@ $$
 
 The payload therefore contains $R\times D$ consecutive `uint16_t` values and
 has a total length of $2*R*D$ bytes.
+
+## Selecting the output
+
+The CLI config command `guiMonitor` selects the TLV elements that are sent in
+the output packet. This includes the range/Doppler heatmap.

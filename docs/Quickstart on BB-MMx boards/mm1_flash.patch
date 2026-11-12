@@ -1,0 +1,201 @@
+--- a/mcu_plus_sdk_awr2x44p_10_02_00_04/examples/drivers/boot/sbl_qspi/mm1/r5fss0-0_nortos/ti-arm-clang/generated/ti_board_open_close.c
++++ b/mcu_plus_sdk_awr2x44p_10_02_00_04/examples/drivers/boot/sbl_qspi/mm1/r5fss0-0_nortos/ti-arm-clang/generated/ti_board_open_close.c
+@@ -55,18 +55,18 @@
+  * FLASH
+  */
+ /* FLASH Object - initialized during Flash_open() */
+-Flash_NorQspiObject gFlashObject_GD25B64C;
++Flash_NorQspiObject gFlashObject_MX25R6435F;
+ 
+ /* FLASH Driver handles - opened during Board_flashOpen() */
+ Flash_Handle gFlashHandle[CONFIG_FLASH_NUM_INSTANCES];
+ 
+ /* FLASH Attrs */
+ /* FLASH Attrs - populated from SysConfig options */
+-Flash_Attrs gFlashAttrs_GD25B64C =
++Flash_Attrs gFlashAttrs_MX25R6435F =
+ {
+-    .flashName = "GD25B64C",
+-    .deviceId = 0x4017,
+-    .manufacturerId = 0xC8,
++    .flashName = "MX25R6435F",
++    .deviceId = 0x2817,
++    .manufacturerId = 0xC2,
+     .flashSize = 8388608,
+     .blockCount = 128,
+     .blockSize = 65536,
+@@ -78,7 +78,7 @@
+ 
+ /* FLASH DevConfig */
+ /* FLASH DevConfig - populated from SysConfig options */
+-Flash_DevConfig gFlashDevCfg_GD25B64C =
++Flash_DevConfig gFlashDevCfg_MX25R6435F =
+ {
+     .enable4BAddr = false,
+     .addrByteSupport = 0x00,
+@@ -112,7 +112,7 @@
+         .modeClksRd = 0,
+         .dummyClksCmd = 0,
+         .dummyClksRd = 8,
+-        .enableType = 1,
++        .enableType = 2,
+     },
+     .flashWriteTimeout = 4000,
+     .flashBusyTimeout = 6000000,
+@@ -122,10 +122,10 @@
+ Flash_Config gFlashConfig[CONFIG_FLASH_NUM_INSTANCES] =
+ {
+     {
+-        .attrs = &gFlashAttrs_GD25B64C,
++        .attrs = &gFlashAttrs_MX25R6435F,
+         .fxns = &gFlashNorQspiFxns,
+-        .devConfig = &gFlashDevCfg_GD25B64C,
+-        .object = (void *)&gFlashObject_GD25B64C,
++        .devConfig = &gFlashDevCfg_MX25R6435F,
++        .object = (void *)&gFlashObject_MX25R6435F,
+     },
+ };
+ 
+@@ -156,7 +156,7 @@
+     }
+ 
+     /* Set the underlying driver instance to the FLASH config */
+-    gFlashAttrs_GD25B64C.driverInstance = CONFIG_QSPI0;
++    gFlashAttrs_MX25R6435F.driverInstance = CONFIG_QSPI0;
+ 
+     /* Open all instances */
+     for(instCnt = 0U; instCnt < CONFIG_FLASH_NUM_INSTANCES; instCnt++)
+--- a/mcu_plus_sdk_awr2x44p_10_02_00_04/examples/drivers/boot/sbl_uart_uniflash/mm1/r5fss0-0_nortos/ti-arm-clang/generated/ti_board_open_close.c
++++ b/mcu_plus_sdk_awr2x44p_10_02_00_04/examples/drivers/boot/sbl_uart_uniflash/mm1/r5fss0-0_nortos/ti-arm-clang/generated/ti_board_open_close.c
+@@ -55,18 +55,18 @@
+  * FLASH
+  */
+ /* FLASH Object - initialized during Flash_open() */
+-Flash_NorQspiObject gFlashObject_GD25B64C;
++Flash_NorQspiObject gFlashObject_MX25R6435F;
+ 
+ /* FLASH Driver handles - opened during Board_flashOpen() */
+ Flash_Handle gFlashHandle[CONFIG_FLASH_NUM_INSTANCES];
+ 
+ /* FLASH Attrs */
+ /* FLASH Attrs - populated from SysConfig options */
+-Flash_Attrs gFlashAttrs_GD25B64C =
++Flash_Attrs gFlashAttrs_MX25R6435F =
+ {
+-    .flashName = "GD25B64C",
+-    .deviceId = 0x4017,
+-    .manufacturerId = 0xC8,
++    .flashName = "MX25R6435F",
++    .deviceId = 0x2817,
++    .manufacturerId = 0xC2,
+     .flashSize = 8388608,
+     .blockCount = 128,
+     .blockSize = 65536,
+@@ -78,7 +78,7 @@
+ 
+ /* FLASH DevConfig */
+ /* FLASH DevConfig - populated from SysConfig options */
+-Flash_DevConfig gFlashDevCfg_GD25B64C =
++Flash_DevConfig gFlashDevCfg_MX25R6435F =
+ {
+     .enable4BAddr = false,
+     .addrByteSupport = 0x00,
+@@ -112,7 +112,7 @@
+         .modeClksRd = 0,
+         .dummyClksCmd = 0,
+         .dummyClksRd = 8,
+-        .enableType = 1,
++        .enableType = 2,
+     },
+     .flashWriteTimeout = 4000,
+     .flashBusyTimeout = 6000000,
+@@ -122,10 +122,10 @@
+ Flash_Config gFlashConfig[CONFIG_FLASH_NUM_INSTANCES] =
+ {
+     {
+-        .attrs = &gFlashAttrs_GD25B64C,
++        .attrs = &gFlashAttrs_MX25R6435F,
+         .fxns = &gFlashNorQspiFxns,
+-        .devConfig = &gFlashDevCfg_GD25B64C,
+-        .object = (void *)&gFlashObject_GD25B64C,
++        .devConfig = &gFlashDevCfg_MX25R6435F,
++        .object = (void *)&gFlashObject_MX25R6435F,
+     },
+ };
+ 
+@@ -156,7 +156,7 @@
+     }
+ 
+     /* Set the underlying driver instance to the FLASH config */
+-    gFlashAttrs_GD25B64C.driverInstance = CONFIG_QSPI0;
++    gFlashAttrs_MX25R6435F.driverInstance = CONFIG_QSPI0;
+ 
+     /* Open all instances */
+     for(instCnt = 0U; instCnt < CONFIG_FLASH_NUM_INSTANCES; instCnt++)
+--- a/mmwave_mcuplus_sdk_04_07_02_01/ti/demo/awr2x44P/mmw_tdm/mss/mssgenerated/ti_board_open_close.c
++++ b/mmwave_mcuplus_sdk_04_07_02_01/ti/demo/awr2x44P/mmw_tdm/mss/mssgenerated/ti_board_open_close.c
+@@ -57,18 +57,18 @@
+  * FLASH
+  */
+ /* FLASH Object - initialized during Flash_open() */
+-Flash_NorQspiObject gFlashObject_GD25B64C;
++Flash_NorQspiObject gFlashObject_MX25R6435F;
+ 
+ /* FLASH Driver handles - opened during Board_flashOpen() */
+ Flash_Handle gFlashHandle[CONFIG_FLASH_NUM_INSTANCES];
+ 
+ /* FLASH Attrs */
+ /* FLASH Attrs - populated from SysConfig options */
+-Flash_Attrs gFlashAttrs_GD25B64C =
++Flash_Attrs gFlashAttrs_MX25R6435F =
+ {
+-    .flashName = "GD25B64C",
+-    .deviceId = 0x4017,
+-    .manufacturerId = 0xC8,
++    .flashName = "MX25R6435F",
++    .deviceId = 0x2817,
++    .manufacturerId = 0xC2,
+     .flashSize = 8388608,
+     .blockCount = 128,
+     .blockSize = 65536,
+@@ -80,7 +80,7 @@
+ 
+ /* FLASH DevConfig */
+ /* FLASH DevConfig - populated from SysConfig options */
+-Flash_DevConfig gFlashDevCfg_GD25B64C =
++Flash_DevConfig gFlashDevCfg_MX25R6435F =
+ {
+     .enable4BAddr = false,
+     .addrByteSupport = 0x00,
+@@ -114,7 +114,7 @@
+         .modeClksRd = 0,
+         .dummyClksCmd = 0,
+         .dummyClksRd = 8,
+-        .enableType = 1,
++        .enableType = 2,
+     },
+     .flashWriteTimeout = 4000,
+     .flashBusyTimeout = 6000000,
+@@ -124,10 +124,10 @@
+ Flash_Config gFlashConfig[CONFIG_FLASH_NUM_INSTANCES] =
+ {
+     {
+-        .attrs = &gFlashAttrs_GD25B64C,
++        .attrs = &gFlashAttrs_MX25R6435F,
+         .fxns = &gFlashNorQspiFxns,
+-        .devConfig = &gFlashDevCfg_GD25B64C,
+-        .object = (void *)&gFlashObject_GD25B64C,
++        .devConfig = &gFlashDevCfg_MX25R6435F,
++        .object = (void *)&gFlashObject_MX25R6435F,
+     },
+ };
+ 
+@@ -158,7 +158,7 @@
+     }
+ 
+     /* Set the underlying driver instance to the FLASH config */
+-    gFlashAttrs_GD25B64C.driverInstance = CONFIG_QSPI0;
++    gFlashAttrs_MX25R6435F.driverInstance = CONFIG_QSPI0;
+ 
+     /* Open all instances */
+     for(instCnt = 0U; instCnt < CONFIG_FLASH_NUM_INSTANCES; instCnt++)

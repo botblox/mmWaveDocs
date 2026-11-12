@@ -132,9 +132,39 @@ The output from loading the default profile and starting the sensor will mean al
 The calibration procedure measures range bias and receive-channel gain/phase errors. It is supported here for TDM operation. This calibration isn't due to some fault in the design but rather there are always imperfections in antenna layouts on the board, RF delays in the SOC, etc. There is a need to calibrate the sensor to compensate for bias in the range estimation and receive channel gain / phase imperfections. This will need to be done on EVERY BB-MM1 board, even if the revision has not changed.
 
 1. Place a [strong corner reflector](https://www.everythingrf.com/search/corner-reflectors) at a known distance `X` metres from the radar, directly on boresight. Do not use a distance below approximately `0.5` metres.
-2. Investigate the AWR2944 TDM calibration profile. This is suitable for the AWR2944P-based board because the calibration configuration is effectively the same:
+2. Copy this into a new calibration profile below into `mmwave_mcuplus_sdk_04_07_02_01/ti/demo/awr2x44P/mmw_tdm/profiles/awr2944P/profile_calibration.cfg`
 
-   `/path/to/mmwave_mcuplus_sdk_04_07_02_01/mmwave_mcuplus_sdk_04_07_02_01/ti/demo/awr294x/mmw/profiles/tdm_awr2944/profile_calibration.cfg`
+```
+% Calibration config
+sensorStop
+flushCfg
+dfeDataOutputMode 1
+channelCfg 15 15 0 0 0
+adcCfg 2 0
+adcbufCfg -1 1 1 1 1
+lowPower 0 0
+profileCfg 0 77 7 3 39 0 0 100 1 256 7200 0 0 158
+chirpCfg 0 0 0 0 0 0 0 1
+chirpCfg 1 1 0 0 0 0 0 4
+chirpCfg 2 2 0 0 0 0 0 8
+chirpCfg 3 3 0 0 0 0 0 2
+frameCfg 0 3 32 0 256 500 1 0
+guiMonitor -1 1 1 1 1 0 1
+cfarCfg -1 0 2 8 4 3 0 15.0 0
+cfarCfg -1 1 0 4 2 3 1 15.0 0
+multiObjBeamForming -1 1 0.5
+calibDcRangeSig -1 0 -5 8 256
+clutterRemoval -1 0
+antGeometryCfg 1 0 1 1 1 2 1 3 0 2 0 3 0 4 0 5 1 4 1 5 1 6 1 7 1 8 1 9 1 10 1 11 0.5 0.87
+compRangeBiasAndRxChanPhase 0.0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0
+measureRangeBiasAndRxChanPhase 1 1.5 0.2
+aoaFovCfg -1 -90 90 -38 38
+cfarFovCfg -1 0 0.25 8.64
+cfarFovCfg -1 1 -7.06 7.06
+extendedMaxVelocity -1 0
+calibData 0 0 0x1f0000
+sensorStart
+```
 
 Note the values for `measureRangeBiasAndRxChanPhase`. The first number is `1` to enable the calibration measurements, second is the distance from the boresight (0 degree azimuthal) of the corner reflector from the boresight, and the third is the size of the window along the range axis that the response peak of that corner reflector will be searched.
 
@@ -162,3 +192,6 @@ where `c` is the speed of light and `B` is the total measured bandwidth of the c
 
 The generated compensation command must be retained with any profile used for actual operation. Set the first number of `measureRangeBiasAndRxChanPhase` with `0` from `1` if you do not wish to calibrate any further.
 
+### Other notes
+
+`aoaFovCfg -1 -90 90 -38 38` are the defaults but may need to be altered based on the desired angle of arrival limits. This is useful for cutting out any sidelobe detection that may arise. Consult the antenna response diagram.
